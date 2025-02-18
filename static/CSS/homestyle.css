@@ -1,0 +1,50 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #141e30, #243b55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.1); /* Light transparency */
+    backdrop-filter: blur(10px); /* Glass effect */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+h1 {
+    color: white;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 18px; /* Optimal font size for readability */
+    color: #adadad; /* White text for contrast */
+    font-family: 'Arial', sans-serif; /* A clean, modern font */;
+}
+
+button {
+    background-color: #007bff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+button a{
+    color: white;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
