@@ -8,6 +8,7 @@ from dataclasses import dataclass
 
 from src.components.data_ingestion import DataIngestion
 from src.components.data_transformation import Datatransformation
+from src.components.model_tranier import ModelTrainer
 
 if __name__ == '__main__':
     object = DataIngestion()
@@ -17,3 +18,6 @@ if __name__ == '__main__':
     
     data_transformation = Datatransformation()
     train_arr,test_arr,preprocessor_path = data_transformation.intiate_data_transformation(train_data_path,test_data_path)
+    
+    model_trainer = ModelTrainer()
+    model_trainer.initate_model_training(train_arr,test_arr)
