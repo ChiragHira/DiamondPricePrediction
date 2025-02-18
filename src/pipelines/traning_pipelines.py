@@ -7,9 +7,13 @@ from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
 
 from src.components.data_ingestion import DataIngestion
+from src.components.data_transformation import Datatransformation
 
 if __name__ == '__main__':
     object = DataIngestion()
     
     train_data_path,test_data_path = object.intial_data_ingestion()
     print(train_data_path,test_data_path)
+    
+    data_transformation = Datatransformation()
+    train_arr,test_arr,preprocessor_path = data_transformation.intiate_data_transformation(train_data_path,test_data_path)

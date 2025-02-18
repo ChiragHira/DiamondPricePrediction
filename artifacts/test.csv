@@ -1,4 +1,4 @@
-Unnamed: 0,carat,cut,color,clarity,depth,table,price,x,y,z
+id,carat,cut,color,clarity,depth,table,price,x,y,z
 1389,0.24,Ideal,G,VVS1,62.1,56.0,559,3.97,4.0,2.47
 19842,1.21,Very Good,F,VS2,62.9,54.0,8403,6.78,6.82,4.28
 41648,0.5,Fair,E,SI1,61.7,68.0,1238,5.09,5.03,3.12
