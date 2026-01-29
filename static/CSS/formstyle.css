@@ -1,97 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+  --primary-color: #4facfe;
+  --secondary-color: #00f2fe;
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --text-color: #333;
+  --input-bg: rgba(255, 255, 255, 0.9);
+  --focus-border: #4facfe;
+}
 
 body {
-    font-family: 'Roboto', sans-serif;
-    background: linear-gradient(to bottom, #141e30, #243b55);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    margin: 30px;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #141e30 0%, #243b55 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  width: 100%;
+  max-width: 800px;
+  animation: slideUp 0.8s ease-out;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #141e30;
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group {
+  margin-bottom: 0;
+  /* Reset since we use grid gap */
+}
+
+/* Make full width for inputs on mobile or specific layout preferences */
+@media (max-width: 600px) {
+  form {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-group label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  display: block;
+  color: #444;
+  margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: var(--input-bg);
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: var(--focus-border);
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(79, 172, 254, 0.2);
+}
+
+input[type="submit"] {
+  grid-column: 1 / -1;
+  /* Span full width */
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  padding: 15px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+input[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(79, 172, 254, 0.4);
+}
+
+input[type="submit"]:active {
+  transform: translateY(0);
+}
+
+.final-result {
+  text-align: center;
+  margin-top: 25px;
+  font-size: 1.2rem;
+  color: #141e30;
+  font-weight: 500;
+  padding: 15px;
+  background: rgba(79, 172, 254, 0.1);
+  border-radius: 10px;
+  border: 1px solid rgba(79, 172, 254, 0.3);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.clear {
+  display: none;
+  /* No longer needed with grid */
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
   }
 
-  .container {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 800px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
 
-  h1 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #333;
+  to {
+    opacity: 1;
   }
-
-  .form-group {
-    margin-bottom: 20px;
-  }
-
-  .form-group label {
-    font-size: 14px;
-    font-weight: 500;
-    display: block;
-    color: #555;
-    margin-bottom: 8px;
-  }
-
-  .form-group input,
-  .form-group select {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-  }
-
-  .form-group input:focus,
-  .form-group select:focus {
-    border-color: #007BFF;
-    outline: none;
-  }
-
-  .form-group input::placeholder,
-  .form-group select {
-    color: #aaa;
-  }
-
-  .form-group input[type="text"] {
-    height: 40px;
-  }
-
-  select {
-    height: 45px;
-  }
-
-  input[type="submit"] {
-    background-color: #007BFF;
-    color: #fff;
-    font-size: 18px;
-    border: none;
-    padding: 12px 24px;
-    width: 100%;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-
-  input[type="submit"]:hover {
-    background-color: #0056b3;
-  }
-
-  input[type="submit"]:active {
-    background-color: #003f7f;
-  }
-
-  .clear {
-    clear: both;
-  }
-
-  .final-result {
-    text-align: center;
-    margin-top: 30px;
-    font-size: 18px;
-    color: #333;
-  }
+}
