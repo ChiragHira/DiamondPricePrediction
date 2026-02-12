@@ -7,12 +7,31 @@
     <link rel="stylesheet" href="../static/CSS/homestyle.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Diamond Price Prediction</h1>
-        <p>Accurately predict diamond prices using advanced machine learning models. Enter the details of a diamond to estimate its value instantly.</p>
-        <button onclick="window.location.href='/predict'">
-            Predict Price
-        </button>
-    </div>
+    <main class="hero-wrapper">
+        <section class="hero-card">
+            <p class="eyebrow">AI-Powered Valuation</p>
+            <h1>Diamond Price Prediction</h1>
+            <p class="hero-description">
+                Estimate a diamond's market value in seconds using our machine-learning model trained on real-world pricing patterns.
+            </p>
+
+            <div class="feature-grid">
+                <article class="feature-item">
+                    <h2>Fast</h2>
+                    <p>Get instant predictions from a lightweight API.</p>
+                </article>
+                <article class="feature-item">
+                    <h2>Data Driven</h2>
+                    <p>Built using features like carat, cut, color, and clarity.</p>
+                </article>
+                <article class="feature-item">
+                    <h2>User Friendly</h2>
+                    <p>Simple form with guided inputs and quick feedback.</p>
+                </article>
+            </div>
+
+            <button class="cta-button" onclick="window.location.href='/predict'">Start Prediction</button>
+        </section>
+    </main>
 </body>
 </html>
