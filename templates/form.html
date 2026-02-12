@@ -9,44 +9,48 @@
 </head>
 
 <body>
-
-
   <div class="container">
-    <h1>Diamond Prediction Form</h1>
+    <div class="page-header">
+      <h1>Diamond Prediction Form</h1>
+      <a class="back-link" href="/">← Back to Home</a>
+    </div>
+
+    <p class="helper-text">Fill in the diamond details to generate an estimated price.</p>
+
     <form action="{{url_for('predict_datapoint')}}" method="POST">
       <div class="form-group">
-        <label for="carat">Carat:</label>
-        <input type="text" id="carat" name="carat" placeholder="Enter carat value (float)">
+        <label for="carat">Carat</label>
+        <input type="number" id="carat" name="carat" step="0.01" min="0" placeholder="e.g., 0.75" required>
       </div>
 
       <div class="form-group">
-        <label for="depth">Depth:</label>
-        <input type="text" id="depth" name="depth" placeholder="Enter depth value (float)">
+        <label for="depth">Depth</label>
+        <input type="number" id="depth" name="depth" step="0.01" min="0" placeholder="e.g., 61.5" required>
       </div>
 
       <div class="form-group">
-        <label for="table">Table:</label>
-        <input type="text" id="table" name="table" placeholder="Enter table value (float)">
+        <label for="table">Table</label>
+        <input type="number" id="table" name="table" step="0.01" min="0" placeholder="e.g., 57" required>
       </div>
 
       <div class="form-group">
-        <label for="x">x:</label>
-        <input type="text" id="x" name="x" placeholder="Enter x value (float)">
+        <label for="x">Length (x)</label>
+        <input type="number" id="x" name="x" step="0.01" min="0" placeholder="e.g., 5.82" required>
       </div>
 
       <div class="form-group">
-        <label for="y">y:</label>
-        <input type="text" id="y" name="y" placeholder="Enter y value (float)">
+        <label for="y">Width (y)</label>
+        <input type="number" id="y" name="y" step="0.01" min="0" placeholder="e.g., 5.79" required>
       </div>
 
       <div class="form-group">
-        <label for="z">z:</label>
-        <input type="text" id="z" name="z" placeholder="Enter z value (float)">
+        <label for="z">Height (z)</label>
+        <input type="number" id="z" name="z" step="0.01" min="0" placeholder="e.g., 3.56" required>
       </div>
 
       <div class="form-group">
-        <label for="cut">Cut:</label>
-        <select id="cut" name="cut">
+        <label for="cut">Cut</label>
+        <select id="cut" name="cut" required>
           <option value="Fair">Fair</option>
           <option value="Good">Good</option>
           <option value="Very Good">Very Good</option>
@@ -56,8 +60,8 @@
       </div>
 
       <div class="form-group">
-        <label for="color">Color:</label>
-        <select id="color" name="color">
+        <label for="color">Color</label>
+        <select id="color" name="color" required>
           <option value="D">D</option>
           <option value="E">E</option>
           <option value="F">F</option>
@@ -69,8 +73,8 @@
       </div>
 
       <div class="form-group">
-        <label for="clarity">Clarity:</label>
-        <select id="clarity" name="clarity">
+        <label for="clarity">Clarity</label>
+        <select id="clarity" name="clarity" required>
           <option value="I1">I1</option>
           <option value="SI2">SI2</option>
           <option value="SI1">SI1</option>
@@ -82,15 +86,15 @@
         </select>
       </div>
 
-      <input type="submit" value="Submit">
+      <input type="submit" value="Estimate Price">
     </form>
 
+    {% if final_result is defined %}
     <div class="final-result">
-      {{final_result}}
+      Estimated Price: <span>${{ final_result }}</span>
     </div>
+    {% endif %}
   </div>
-
-
 </body>
 
 </html>

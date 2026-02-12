@@ -1,155 +1,150 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
 :root {
-  --primary-color: #4facfe;
-  --secondary-color: #00f2fe;
-  --glass-bg: rgba(255, 255, 255, 0.1);
-  --glass-border: rgba(255, 255, 255, 0.2);
-  --text-color: #333;
-  --input-bg: rgba(255, 255, 255, 0.9);
-  --focus-border: #4facfe;
+  --primary-color: #7f5af0;
+  --secondary-color: #2cb67d;
+  --surface: rgba(255, 255, 255, 0.93);
+  --text-color: #1a2238;
+  --muted-text: #5f6c8c;
+  --field-bg: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #141e30 0%, #243b55 100%);
+  background:
+    radial-gradient(circle at 12% 18%, rgba(127, 90, 240, 0.22), transparent 32%),
+    radial-gradient(circle at 86% 88%, rgba(44, 182, 125, 0.2), transparent 32%),
+    linear-gradient(135deg, #0f1b33 0%, #16243f 100%);
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   margin: 0;
-  padding: 20px;
-  box-sizing: border-box;
+  padding: 24px;
 }
 
 .container {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  padding: 40px;
-  border-radius: 20px;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: var(--surface);
+  padding: 32px;
+  border-radius: 22px;
+  box-shadow: 0 20px 45px rgba(11, 18, 32, 0.35);
   width: 100%;
-  max-width: 800px;
-  animation: slideUp 0.8s ease-out;
+  max-width: 920px;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 6px;
 }
 
 h1 {
-  text-align: center;
-  margin-bottom: 30px;
-  color: #141e30;
-  font-size: 2.2rem;
-  font-weight: 600;
+  margin: 0;
+  color: var(--text-color);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+}
+
+.back-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.helper-text {
+  margin: 6px 0 24px;
+  color: var(--muted-text);
 }
 
 form {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-
-.form-group {
-  margin-bottom: 0;
-  /* Reset since we use grid gap */
-}
-
-/* Make full width for inputs on mobile or specific layout preferences */
-@media (max-width: 600px) {
-  form {
-    grid-template-columns: 1fr;
-  }
+  gap: 18px;
 }
 
 .form-group label {
-  font-size: 0.95rem;
+  font-size: 0.93rem;
   font-weight: 500;
   display: block;
-  color: #444;
+  color: #34405e;
   margin-bottom: 8px;
 }
 
 .form-group input,
 .form-group select {
   width: 100%;
-  padding: 12px 15px;
-  font-size: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  background: var(--input-bg);
-  transition: all 0.3s ease;
-  box-sizing: border-box;
+  padding: 12px 14px;
+  font-size: 0.98rem;
+  border: 1px solid #d8ddeb;
+  border-radius: 11px;
+  background: var(--field-bg);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
   font-family: 'Poppins', sans-serif;
 }
 
 .form-group input:focus,
 .form-group select:focus {
-  border-color: var(--focus-border);
+  border-color: var(--primary-color);
   outline: none;
-  box-shadow: 0 0 0 4px rgba(79, 172, 254, 0.2);
+  box-shadow: 0 0 0 4px rgba(127, 90, 240, 0.16);
 }
 
 input[type="submit"] {
   grid-column: 1 / -1;
-  /* Span full width */
+  margin-top: 4px;
   background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
   color: #fff;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
   border: none;
-  padding: 15px;
-  border-radius: 50px;
+  padding: 14px;
+  border-radius: 999px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  margin-top: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 10px 25px rgba(127, 90, 240, 0.25);
 }
 
 input[type="submit"]:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(79, 172, 254, 0.4);
-}
-
-input[type="submit"]:active {
-  transform: translateY(0);
+  box-shadow: 0 12px 28px rgba(44, 182, 125, 0.32);
 }
 
 .final-result {
-  text-align: center;
-  margin-top: 25px;
-  font-size: 1.2rem;
-  color: #141e30;
+  margin-top: 22px;
+  font-size: 1.1rem;
+  color: var(--text-color);
   font-weight: 500;
-  padding: 15px;
-  background: rgba(79, 172, 254, 0.1);
-  border-radius: 10px;
-  border: 1px solid rgba(79, 172, 254, 0.3);
-  animation: fadeIn 0.5s ease-in-out;
+  padding: 14px 16px;
+  background: rgba(44, 182, 125, 0.12);
+  border-radius: 12px;
+  border: 1px solid rgba(44, 182, 125, 0.35);
 }
 
-.clear {
-  display: none;
-  /* No longer needed with grid */
+.final-result span {
+  font-weight: 700;
+  color: #0f5132;
 }
 
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(50px);
+@media (max-width: 760px) {
+  .container {
+    padding: 24px;
   }
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  to {
-    opacity: 1;
+  form {
+    grid-template-columns: 1fr;
   }
 }

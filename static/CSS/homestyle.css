@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
 :root {
-    --primary-color: #4facfe;
-    --secondary-color: #00f2fe;
-    --glass-bg: rgba(255, 255, 255, 0.1);
-    --glass-border: rgba(255, 255, 255, 0.2);
+    --primary-color: #7f5af0;
+    --secondary-color: #2cb67d;
+    --card-bg: rgba(18, 27, 47, 0.72);
+    --card-border: rgba(255, 255, 255, 0.18);
     --text-color: #ffffff;
-    --text-muted: #e0e0e0;
+    --muted-text: #d6ddf5;
 }
 
 * {
@@ -14,83 +14,119 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
     margin: 0;
-    padding: 0;
-    background: linear-gradient(135deg, #141e30 0%, #243b55 100%);
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    color: var(--text-color);
+    background:
+        radial-gradient(circle at 10% 20%, rgba(127, 90, 240, 0.35), transparent 30%),
+        radial-gradient(circle at 90% 80%, rgba(44, 182, 125, 0.28), transparent 35%),
+        linear-gradient(135deg, #0b1220 0%, #1c2b45 45%, #0f1b33 100%);
     display: flex;
-    justify-content: center;
     align-items: center;
-    height: 100vh;
-    overflow: hidden;
+    justify-content: center;
+    padding: 24px;
 }
 
-.container {
-    max-width: 700px;
-    background: var(--glass-bg);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid var(--glass-border);
-    padding: 40px;
-    border-radius: 20px;
-    text-align: center;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-    animation: fadeIn 1.2s ease-out;
+.hero-wrapper {
+    width: 100%;
+    max-width: 980px;
+}
+
+.hero-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    padding: 42px;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 20px 55px rgba(0, 0, 0, 0.35);
+    animation: fadeIn 0.9s ease;
+}
+
+.eyebrow {
+    margin: 0;
+    color: #9cc4ff;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    font-weight: 600;
 }
 
 h1 {
-    color: var(--text-color);
-    font-size: 3rem;
-    margin-bottom: 20px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    margin: 10px 0 14px;
+    font-size: clamp(2rem, 5vw, 3.1rem);
+    line-height: 1.1;
 }
 
-p {
-    font-size: 1.1rem;
-    color: var(--text-muted);
-    line-height: 1.6;
-    margin-bottom: 40px;
+.hero-description {
+    margin: 0;
+    color: var(--muted-text);
+    max-width: 740px;
+    line-height: 1.7;
 }
 
-button {
+.feature-grid {
+    margin: 32px 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.feature-item {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    padding: 16px;
+}
+
+.feature-item h2 {
+    margin: 0 0 6px;
+    font-size: 1rem;
+}
+
+.feature-item p {
+    margin: 0;
+    color: var(--muted-text);
+    font-size: 0.92rem;
+}
+
+.cta-button {
     background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
     border: none;
-    padding: 15px 40px;
-    font-size: 1.1rem;
+    color: #fff;
+    padding: 14px 34px;
+    border-radius: 999px;
+    font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    border-radius: 50px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 8px 25px rgba(44, 182, 125, 0.3);
 }
 
-button a {
-    color: white;
-    text-decoration: none;
-    display: block;
-    width: 100%;
-    height: 100%;
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(127, 90, 240, 0.35);
 }
 
-button:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 8px 25px rgba(79, 172, 254, 0.4);
-}
+@media (max-width: 800px) {
+    .hero-card {
+        padding: 28px;
+    }
 
-button:active {
-    transform: translateY(0) scale(0.98);
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(12px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
-
